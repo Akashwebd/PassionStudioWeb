@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import { useRef } from 'react';
+import React,{ useEffect, useRef,useState } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Box, Link } from '@mui/material';
+// import Icon from 'react-native-ico-technology-logos';
 //
 import Image from '../image';
 import TextMaxLine from '../text-max-line';
@@ -18,6 +19,7 @@ MenuCarousel.propTypes = {
 };
 
 export default function MenuCarousel({ products, numberShow, sx }) {
+  const [index,setIndex] = useState(0);
   const theme = useTheme();
   const carouselRef = useRef(null);
 
@@ -38,6 +40,14 @@ export default function MenuCarousel({ products, numberShow, sx }) {
     carouselRef.current?.slickNext();
   };
 
+  useEffect(()=>{
+    const interval = setInterval(() => { 
+      carouselRef.current?.slickNext();
+      setIndex(index+1);
+    }, 5000);
+    return () => clearInterval(interval);
+  },[index]);
+
   return (
     <Box sx={{ position: 'relative', ...sx }}>
       <CarouselArrows
@@ -55,8 +65,8 @@ export default function MenuCarousel({ products, numberShow, sx }) {
       >
         <Carousel ref={carouselRef} {...carouselSettings}>
           {products.map((product) => (
-            <Box key={product.name} sx={{ px: 1, textAlign: 'center' }}>
-              <Link
+            <Box key={product.name} sx={{ px: 1, textAlign: 'center',padding:"10px" }}>
+              {/* <Link
                 component={RouterLink}
                 to={product.path}
                 color="inherit"
@@ -66,19 +76,28 @@ export default function MenuCarousel({ products, numberShow, sx }) {
                   transition: theme.transitions.create('all'),
                   '&:hover': { color: 'primary.main' },
                 }}
-              >
-                <Image
+              > */}
+                {/* <Image
                   alt={product.image}
                   src={product.image}
                   ratio="1/1"
                   disabledEffect
                   sx={{ borderRadius: 1, mb: 1 }}
-                />
-
-                <TextMaxLine line={2} variant="caption" sx={{ fontWeight: 'fontWeightMedium' }}>
-                  {product.name}
+                /> */}
+                {/* <Icon name="t-mobile" /> */}
+                <TextMaxLine line={5} variant="body2" sx={{ fontWeight: 'fontWeightMedium',mb:1 }}>
+                  {product.quote}
                 </TextMaxLine>
-              </Link>
+                <TextMaxLine line={2} variant="h4" sx={{ fontWeight: 'fontWeightMedium',mb:1 }}>
+                  {product.name? product.name:null}
+                </TextMaxLine>
+                <TextMaxLine line={2} variant="body1" sx={{ fontWeight: 'fontWeightMedium',mb:1 }}>
+                  {product.title?product.title:null}
+                </TextMaxLine>
+                <TextMaxLine line={2} variant="h4" sx={{ fontWeight: 'fontWeightMedium',mb:1 }}>
+                  {product.company}
+                </TextMaxLine>
+              {/* </Link> */}
             </Box>
           ))}
         </Carousel>

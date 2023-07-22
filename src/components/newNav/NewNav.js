@@ -3,6 +3,9 @@ import { useTheme } from '@mui/material/styles';
 import { AppBar, Box, Toolbar, Typography, Button, Grid } from '@mui/material';
 import { bgBlur } from '../../utils/cssStyles';
 import { HEADER } from '../../config-global';
+import Footer from "../../layouts/main/Footer";
+import Testimonial from "./Testimonial";
+import Services from "./Services";
 
 function NewNav(){
     const theme = useTheme();
@@ -93,26 +96,52 @@ function NewNav(){
               backgroundImage: 'url(/assets/images/passionStudio/hero-bg.jpg)'
           }}
         />
-        <Box sx={{ flexGrow: 2,display: { xs: 'none', md: 'flex' },mt:5 }}>
+        <Box sx={{ flexGrow: 2,display: { xs: 'none', md: 'flex' },mt:5,padding:"10px" }}>
         <Grid container spacing={16}>
-            <Grid item xs={12} md={6}> 
+            <Grid item xs={12} md={6} > 
              <Typography
-             sx={{justifyContent:'center'}}>
-             Since the year 2010, boasts to be one of Goa's premier event planning and design company for MICE & SOCIALS with 'Excellence'!.<br/><br/>
+             sx={{justifyContent:'center',padding:"30px",fontStyle: "italic"}}>
+             Since the year 2010, boasts to be one of Goa's premier event planning and design company for MICE & SOCIALS with 'Excellence'!.
+             <br />
+             <br />
              With 10 plus years of running in the industry, we garner our experience and innovate,
             conceptualize and deliver to our clients not only a perfect event, but also an unforgettable
             memory. Our Passionate Professionals are always there to provide exceptional customer
             care and assistance at every step, from start to finish. We always go beyond what is being
             expected of us; allowing us to help you create memorable, innovative and anesthetically styled
             event.
-             </Typography>
+            <br />
+            <br />
+            At Team Passion Studio, our success story is based on our aim to provide quality standards of service leading to client satisfaction beyond their expectation.
+            <br />
+            <br />
+            Over the decades, Our team has brought immense happiness & satisfaction to our clients with our immaculate planning and organizing skill which include individuals, families, Fortune 500 corporations and non-profit organisations. Where in our team has conceptualized, designed and executed exceptional events right from meetings, conferences, exhibitions, destination weddings and private parties
+            <br/>
+            <br />
+            Our key strength is our in-house infrastructure and logistics support which enables us to deliver our services to clients "On Time, Every Time!
+            </Typography>
             </Grid>
             <Grid item xs={12} md={6}>
-            <h1>Akash</h1>
+             <Box
+             sx={{
+                position:'relative',
+                  height: '100%',
+                  width:'90%',
+                //   paddingLeft:'100px',
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'center',
+                //   bgcolor: 'background.neutral',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundImage: 'url(/assets/images/passionStudio/about.jpg)'
+              }}
+              />
             </Grid>
 
         </Grid>
         </Box>
+        <Testimonial/>
+        {/* <Services/> */}
+        {/* <Footer/> */}
         </div>
       );
 }

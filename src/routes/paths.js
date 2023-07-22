@@ -32,6 +32,9 @@ export const PATH_PAGE = {
   page404: '/404',
   page500: '/500',
   components: '/components',
+  instagram: 'https://www.instagram.com/teampassionstudio.in/',
+  facebook: 'https://www.facebook.com/Passionstudio79/',
+  linkedin : 'https://www.linkedin.com/in/suraj-ghare-84581464/?originalSubdomain=in'
 };
 
 export const PATH_DASHBOARD = {
