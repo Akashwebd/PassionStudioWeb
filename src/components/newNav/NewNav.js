@@ -1,113 +1,99 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
-import { AppBar, Box, Toolbar, Typography, Button, Grid } from '@mui/material';
-import { bgBlur } from '../../utils/cssStyles';
-import { HEADER } from '../../config-global';
-import Footer from '../../layouts/main/Footer';
+import { AppBar, Box, Toolbar, Typography, Button, Grid, Container, Link } from '@mui/material';
+import useResponsive from '../../hooks/useResponsive';
 import Testimonial from './Testimonial';
 import Services from './Services';
 import Gallery from '../gallery/Gallery';
+import NavMobile from '../../layouts/main/nav/mobile/NavMobile';
+import NavDesktop from '../../layouts/main/nav/desktop/NavDesktop';
+import useOffSetTop from '../../hooks/useOffSetTop';
+import { HEADER } from '../../config-global';
+import Iconify from '../iconify';
+import { bgBlur } from '../../utils/cssStyles';
+import Logo from '../logo';
+import Image from '../image';
+// import heroImage from '/assets/images/passionStudio/hero-bg.jpg'
 
 function NewNav() {
   const theme = useTheme();
   const nav1 = ['About', 'Services', 'Portfolio'];
   const nav2 = ['Gallery', 'Team', 'Contact'];
+  const isDesktop = useResponsive('up', 'md');
+  const isOffset = useOffSetTop(HEADER.H_MAIN_DESKTOP);
+  const navConfig = [
+    {
+      title: 'About',
+      icon: <Iconify icon="eva:info-fill" />,
+      path: '#about',
+    },
+    {
+      title: 'Services',
+      icon: <Iconify icon="eos-icons:service" />,
+      path: '#services',
+    },
+    {
+      title: 'Portfolio',
+      path: '#portfolio',
+      icon: <Iconify icon="eva:briefcase-fill" />,
+    },
+
+    {
+      title: 'Gallery',
+      path: '#gallery',
+      icon: <Iconify icon="eva:image-fill" />,
+    },
+    {
+      title: 'Team',
+      path: '#team',
+      icon: <Iconify icon="fluent:people-team-48-filled" />,
+    },
+    {
+      title: 'Contact',
+      path: '#contact',
+      icon: <Iconify icon="eva:phone-call-fill" />,
+    },
+  ];
+
   return (
     <div className="parent">
-      <AppBar
-        component="nav"
-        sx={{
-          top: '0px',
-          paddingTop: '15px',
-          paddingBottom: '15px',
-          backgroundColor: 'transparent',
-          boxShadow: 0,
-          position: 'relative',
-          // color: 'black'
-        }}
-      >
+      <AppBar color="transparent" sx={{ boxShadow: 0 }}>
         <Toolbar
+          disableGutters
           sx={{
-            backgroundColor: 'transparent',
+            height: {
+              xs: HEADER.H_MOBILE,
+              md: HEADER.H_MAIN_DESKTOP,
+            },
+            transition: theme.transitions.create(['height', 'background-color'], {
+              easing: theme.transitions.easing.easeInOut,
+              duration: theme.transitions.duration.shorter,
+            }),
+            ...{
+              ...bgBlur({ color: theme.palette.background.default }),
+              height: {
+                md: HEADER.H_MAIN_DESKTOP - 16,
+              },
+            },
           }}
         >
-          {/* <NavSectionHorizontal data={navConfig} /> */}
-          <Box
+          <Container
             sx={{
-              flexGrow: 2,
-              justifyContent: 'center',
-              ml: 3,
-              display: { xs: 'none', md: 'flex' },
+              height: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: !isDesktop ? 'space-between' : 'center',
             }}
           >
-            {nav1.map((page, index) => (
-              <Button
-                size="large"
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{ mr: 2, color: 'black', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Typography
-            variant="h3"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'black',
-              textDecoration: 'none',
-            }}
-          >
-            PASSION STUDIO
-          </Typography>
-          <Box sx={{ flexGrow: 2, ml: 5, display: { xs: 'none', md: 'flex' } }}>
-            {nav2.map((page, index) => (
-              <Button
-                size="large"
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{ mr: 2, color: 'black', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' } }}>
-            <Button
-              size="large"
-              variant="outlined"
-              // key={page}
-              // onClick={handleCloseNavMenu}
-              sx={{ mr: 2, color: 'black', display: 'block' }}
-            >
-              Get Started
-            </Button>
-          </Box>
-        </Toolbar>
+            {!isDesktop && <Logo />}
 
-        {/* <Shadow /> */}
+            {isDesktop && <NavDesktop isOffset={isOffset} data={navConfig} />}
+
+            {!isDesktop && <NavMobile isOffset={isOffset} data={navConfig} />}
+          </Container>
+        </Toolbar>
       </AppBar>
-      <Box
-        sx={{
-          position: 'relative',
-          height: '85vh',
-          width: '100%',
-          //   paddingLeft:'100px',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          bgcolor: 'background.neutral',
-          backgroundRepeat: 'no-repeat',
-          backgroundImage: 'url(/assets/images/passionStudio/hero-bg.jpg)',
-        }}
-      />
+      <Image ratio="16/9" src="/assets/images/passionStudio/hero-bg.jpg" />
       <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' }, mt: 5, padding: '10px' }}>
         <Grid container spacing={16}>
           <Grid item xs={12} md={6}>
@@ -140,19 +126,7 @@ function NewNav() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                position: 'relative',
-                height: '100%',
-                width: '90%',
-                //   paddingLeft:'100px',
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                //   bgcolor: 'background.neutral',
-                backgroundRepeat: 'no-repeat',
-                backgroundImage: 'url(/assets/images/passionStudio/about.jpg)',
-              }}
-            />
+            <Image ratio="3/4" src="/assets/images/passionStudio/about.jpg" />
           </Grid>
         </Grid>
       </Box>
