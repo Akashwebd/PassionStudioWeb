@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
-import { AppBar, Box, Toolbar, Typography, Button, Grid, Container, Link } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography, Button, Grid, Container, Link,Paper } from '@mui/material';
 import useResponsive from '../../hooks/useResponsive';
 import Testimonial from './Testimonial';
 import Services from './Services';
@@ -13,6 +13,8 @@ import Iconify from '../iconify';
 import { bgBlur } from '../../utils/cssStyles';
 import Logo from '../logo';
 import Image from '../image';
+import Team from './Team';
+import Achievement from './Achievement'
 // import heroImage from '/assets/images/passionStudio/hero-bg.jpg'
 
 function NewNav() {
@@ -94,10 +96,12 @@ function NewNav() {
         </Toolbar>
       </AppBar>
       <Image ratio="16/9" src="/assets/images/passionStudio/hero-bg.jpg" />
-      <Box sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' }, mt: 5, padding: '10px' }}>
+      <Paper elevation={2} sx={{padding:"20px"}}>
+      {/* <CountUp end={123457} /> */}
+      <Box sx={{ flexGrow: 2, display:"grid", mt: 5, padding: '10px' }}>
         <Grid container spacing={16}>
-          <Grid item xs={12} md={6}>
-            <Typography sx={{ justifyContent: 'center', padding: '30px', fontStyle: 'italic' }}>
+          <Grid item xs={12} md={6} order={{sm:2,xs:2,md:1}}>
+            <Typography sx={{ justifyContent: 'center', padding: '30px', fontStyle: 'italic',fontFamily:'"Comfortaa", Sans-serif' }}>
               Since the year 2010, boasts to be one of Goa's premier event planning and design
               company for MICE & SOCIALS with 'Excellence'!.
               <br />
@@ -125,15 +129,19 @@ function NewNav() {
               to deliver our services to clients "On Time, Every Time!
             </Typography>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Image ratio="3/4" src="/assets/images/passionStudio/about.jpg" />
+          <Grid item xs={12} md={6} order={{sm:1,xs:1,md:2}}>
+            <Image ratio="4/3" src="/assets/images/passionStudio/about.jpg" />
           </Grid>
         </Grid>
       </Box>
       <Testimonial />
-      <Gallery />
+      {/* <Gallery /> */}
+      <Team/>
+      <Achievement/>
       {/* <Services/> */}
       {/* <Footer/> */}
+      </Paper>
+
     </div>
   );
 }

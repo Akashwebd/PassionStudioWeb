@@ -93,7 +93,7 @@ export default function Footer() {
               mr: 2,
               mb:2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'Comfortaa", Sans-serif;',
+              fontFamily: '"Comfortaa", Sans-serif',
               fontWeight: 700,
               letterSpacing: '.2rem',
               color: 'black',

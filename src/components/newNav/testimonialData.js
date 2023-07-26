@@ -1,5 +1,5 @@
 
-const data = [
+const testimonialData = [
 {
     name:"Mr. Brijesh Negi ",
     title:"Manager-Operations",
@@ -28,4 +28,47 @@ quote:"I received nothing but positive feedback about every ospecl of the day,an
 
 ];
 
-export default data;
+const EmployeeData=[
+    {
+    image:'/assets/images/Team/team-1.jpg',
+    name:'Suraj Ghare',
+    title:'Founder'
+},
+{
+    image:'/assets/images/Team/team-2.jpg',
+    name:'Suraj Ghare',
+    title:'Founder'
+},
+{
+    image:'/assets/images/Team/team-3.jpg',
+    name:'Suraj Ghare',
+    title:'Founder'
+},
+{   image:'/assets/images/Team/team-4.jpg',
+    name:'Suraj Ghare',
+    title:'Founder'
+
+}
+];
+
+const AchievementData=[
+    {
+        duration:10,
+        description: "Years Of Specialization with a Proven Success Record in Mice & Social's"
+
+    },
+    {
+       duration:50,
+       description:'Large And Medium size Business Projects'
+    },
+    {
+       duration:500,
+       description:'Flawlessly Successful Events'
+    },
+    {
+        duration:100,
+        description:'Experts and Industry Professional working as a team to serve best.'
+    }
+];
+
+export  {testimonialData,EmployeeData,AchievementData};

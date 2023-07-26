@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
-import data from './testimonialData';
+import {testimonialData} from './testimonialData';
 import MenuCarousel from '../mega-menu/MenuCarousel';
 // import MUISliderPage from "../../pages/components/mui/MUISliderPage";
 
@@ -8,15 +8,15 @@ function Testimonial() {
   return (
     <Box>
       <Box
-        sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' }, mt: 5, justifyContent: 'center' }}
+        sx={{ flexGrow: 2, display: "flex", mt: 5, justifyContent: 'center' }}
       >
-        <Typography variant="h2">Testimonials</Typography>
+        <Typography variant="h2" sx={{fontFamily:'"Comfortaa", Sans-serif'}}>Testimonials</Typography>
         {/* <MUISliderPage/> */}
       </Box>
       <Box
-        sx={{ flexGrow: 2, display: { xs: 'none', md: 'flex' }, mt: 1, justifyContent: 'center' }}
+        sx={{ flexGrow: 2, display: "flex", mt: 1, justifyContent: 'center' }}
       >
-        <MenuCarousel sx={{ width: '60%', padding: '20px' }} numberShow={1} products={data} />
+        <MenuCarousel sx={{ width: '60%', padding: '20px' }} numberShow={1} products={testimonialData} />
       </Box>
     </Box>
   );
