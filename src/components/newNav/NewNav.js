@@ -14,7 +14,8 @@ import { bgBlur } from '../../utils/cssStyles';
 import Logo from '../logo';
 import Image from '../image';
 import Team from './Team';
-import Achievement from './Achievement'
+import Achievement from './Achievement';
+import VideoPlayer from './VideoPlayer';
 // import heroImage from '/assets/images/passionStudio/hero-bg.jpg'
 
 function NewNav() {
@@ -134,6 +135,7 @@ function NewNav() {
           </Grid>
         </Grid>
       </Box>
+      <VideoPlayer/>
       <Testimonial />
       {/* <Gallery /> */}
       <Team/>

@@ -18,12 +18,13 @@ function Achievement(){
        }
      },[inViewport]);
     return(
-        <Paper ref={myRef} sx={{marginTop:'150px',backgroundColor:"black"}}>
-        <Grid container spacing={16}>
+        <Paper ref={myRef}>
+        <Box sx={{padding:"30px"}}>
+        <Grid container spacing={3} sx={{backgroundColor:"black",padding:"30px"}}>
             {AchievementData.map(item =>
             <Grid item sm={6} md={3} sx={{textAlign:'center',paddingTop:'20px!important',paddingBottom:'30px',paddingLeft:'20px'}}>
             <h1 style={{color:'white'}}><CountUp duration="3" start={counter} end={item.duration}/><span>+</span></h1>
-            <Typography sx={{color:"white"}}>
+            <Typography sx={{color:"white",fontFamily:'"Comfortaa", Sans-serif',fontStyle: 'italic'}} variant="h6">
                 {item.description}
             </Typography>
             </Grid>
@@ -31,6 +32,7 @@ function Achievement(){
         {/* <Grid item xs={12} md={6} order={{sm:6,md:3}}>
             </Grid> */}
         </Grid>
+        </Box>
     </Paper>
     );
 }
