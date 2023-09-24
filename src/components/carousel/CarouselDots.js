@@ -11,7 +11,7 @@ const StyledRoot = styled(Box, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  color: theme.palette.primary.main,
+  color: theme.palette.primary.darker,
   '& li': {
     width: 18,
     height: 18,

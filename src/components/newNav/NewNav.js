@@ -1,120 +1,158 @@
-import React from "react";
+import React from 'react';
 import { useTheme } from '@mui/material/styles';
-import { AppBar, Box, Toolbar, Typography, Button, Grid } from '@mui/material';
-import { bgBlur } from '../../utils/cssStyles';
+import { AppBar, Box, Toolbar, Typography, Grid, Container,Paper } from '@mui/material';
+import Footer from '../../layouts/main/Footer';
+import useResponsive from '../../hooks/useResponsive';
+import Testimonial from './Testimonial';
+// import Services from './Services';
+// import Gallery from '../gallery/Gallery';
+import NavMobile from '../../layouts/main/nav/mobile/NavMobile';
+import NavDesktop from '../../layouts/main/nav/desktop/NavDesktop';
+import useOffSetTop from '../../hooks/useOffSetTop';
 import { HEADER } from '../../config-global';
+import Iconify from '../iconify';
+import { bgBlur } from '../../utils/cssStyles';
+import Logo from '../logo';
+import Image from '../image';
+import Team from './Team';
+import Achievement from './Achievement';
+import VideoPlayer from './VideoPlayer';
+import Clients from './Clients';
+// import Logo from '../../components/logo';
+// import heroImage from '/assets/images/passionStudio/hero-bg.jpg'
 
-function NewNav(){
-    const theme = useTheme();
-    const nav1 = ['About','Services','Portfolio'];
-    const nav2 = ['Gallery','Team','Contact']
-    return (
-        <div className = "parent">
-        <AppBar
-          component="nav"
+function NewNav() {
+  const theme = useTheme();
+  // const nav1 = ['About', 'Services', 'Portfolio'];
+  // const nav2 = ['Gallery', 'Team', 'Contact'];
+  const isDesktop = useResponsive('up', 'md');
+  const isOffset = useOffSetTop(HEADER.H_MAIN_DESKTOP);
+  const navConfig = [
+    {
+      title: 'About',
+      icon: <Iconify icon="eva:info-fill" />,
+      path: '#about',
+    },
+    {
+      title: 'Services',
+      icon: <Iconify icon="eos-icons:service" />,
+      path: '#services',
+    },
+    {
+      title: 'Portfolio',
+      path: '#portfolio',
+      icon: <Iconify icon="eva:briefcase-fill" />,
+    },
+
+    {
+      title: 'Gallery',
+      path: '#gallery',
+      icon: <Iconify icon="eva:image-fill" />,
+    },
+    {
+      title: 'Team',
+      path: '#team',
+      icon: <Iconify icon="fluent:people-team-48-filled" />,
+    },
+    {
+      title: 'Contact',
+      path: '#contact',
+      icon: <Iconify icon="eva:phone-call-fill" />,
+    },
+  ];
+
+  return (
+    <div className="parent">
+      <AppBar color="transparent" sx={{ boxShadow: 0 }}>
+        <Toolbar
+          disableGutters
           sx={{
-            top:'0px',
-            paddingTop:'15px',
-            paddingBottom:'15px',
-            backgroundColor:'transparent',
-            boxShadow: 0,
-            position:'relative',
-            // color: 'black'
+            height: {
+              xs: HEADER.H_MOBILE,
+              md: HEADER.H_MAIN_DESKTOP,
+            },
+            transition: theme.transitions.create(['height', 'background-color'], {
+              easing: theme.transitions.easing.easeInOut,
+              duration: theme.transitions.duration.shorter,
+            }),
+            ...{
+              ...bgBlur({ color: theme.palette.background.default }),
+              height: {
+                md: HEADER.H_MAIN_DESKTOP - 16,
+              },
+            },
           }}
         >
-          <Toolbar
+          <Container
             sx={{
-                backgroundColor:'transparent',
+              height: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: !isDesktop ? 'space-between' : 'center',
             }}
           >
-            {/* <NavSectionHorizontal data={navConfig} /> */}
-            <Box sx={{ flexGrow: 2,justifyContent:'center' , ml:3,display: { xs: 'none', md: 'flex' } }}>
-          {nav1.map((page,index) => <Button
-                 size="large"
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{mr:2,color: 'black', display: 'block'}}
-               >
-                {page}
-                </Button>)}
-          </Box>
-          <Typography
-            variant="h3"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'black',
-              textDecoration: 'none',
-            }}
-          >
-            PASSION STUDIO
-          </Typography>
-          <Box sx={{ flexGrow: 2, ml:5,display: { xs: 'none', md: 'flex' } }}>
-          {nav2.map((page,index) => <Button
-                 size="large"
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{ mr: 2, color: 'black', display: 'block' }}
-               >
-                {page}
-                </Button>)}
-          </Box>
-          <Box sx={{ flexGrow: 2,display: { xs: 'none', md: 'flex' } }}>
-             <Button
-                 size="large"
-                 variant = "outlined"
-                // key={page}
-                // onClick={handleCloseNavMenu}
-                sx={{ mr: 2, color: 'black', display: 'block' }}
-               >
-                Get Started
-                </Button>
-          </Box>
-          </Toolbar>
-    
-          {/* <Shadow /> */}
-        </AppBar>
-        <Box
-        sx={{
-            position:'relative',
-              height: '85vh',
-              width:'100%',
-            //   paddingLeft:'100px',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              bgcolor: 'background.neutral',
-              backgroundRepeat: 'no-repeat',
-              backgroundImage: 'url(/assets/images/passionStudio/hero-bg.jpg)'
-          }}
-        />
-        <Box sx={{ flexGrow: 2,display: { xs: 'none', md: 'flex' },mt:5 }}>
-        <Grid container spacing={16}>
-            <Grid item xs={12} md={6}> 
-             <Typography
-             sx={{justifyContent:'center'}}>
-             Since the year 2010, boasts to be one of Goa's premier event planning and design company for MICE & SOCIALS with 'Excellence'!.<br/><br/>
-             With 10 plus years of running in the industry, we garner our experience and innovate,
-            conceptualize and deliver to our clients not only a perfect event, but also an unforgettable
-            memory. Our Passionate Professionals are always there to provide exceptional customer
-            care and assistance at every step, from start to finish. We always go beyond what is being
-            expected of us; allowing us to help you create memorable, innovative and anesthetically styled
-            event.
-             </Typography>
-            </Grid>
-            <Grid item xs={12} md={6}>
-            <h1>Akash</h1>
-            </Grid>
+            {!isDesktop && <Logo />}
 
+            {isDesktop && <NavDesktop isOffset={isOffset} data={navConfig} />}
+
+            {!isDesktop && <NavMobile isOffset={isOffset} data={navConfig} />}
+          </Container>
+        </Toolbar>
+      </AppBar>
+      <Image ratio="16/9" src="/assets/images/passionStudio/hero-bg.jpg" />
+      <Paper elevation={2} sx={{padding:"20px"}}>
+      {/* <CountUp end={123457} /> */}
+      {/* <div id="about"> */}
+      <Box sx={{ flexGrow: 2, display:"grid", mt: 5, padding: '10px' }}>
+        <Grid container spacing={16}>
+          <Grid item xs={12} md={6} order={{sm:2,xs:2,md:1}}>
+            <Typography sx={{ justifyContent: 'center', padding: '30px', fontStyle: 'italic',fontFamily:'"Comfortaa", Sans-serif' }}>
+              Since the year 2010, boasts to be one of Goa's premier event planning and design
+              company for MICE & SOCIALS with 'Excellence'!.
+              <br />
+              <br />
+              With 10 plus years of running in the industry, we garner our experience and innovate,
+              conceptualize and deliver to our clients not only a perfect event, but also an
+              unforgettable memory. Our Passionate Professionals are always there to provide
+              exceptional customer care and assistance at every step, from start to finish. We
+              always go beyond what is being expected of us; allowing us to help you create
+              memorable, innovative and anesthetically styled event.
+              <br />
+              <br />
+              At Team Passion Studio, our success story is based on our aim to provide quality
+              standards of service leading to client satisfaction beyond their expectation.
+              <br />
+              <br />
+              Over the decades, Our team has brought immense happiness & satisfaction to our clients
+              with our immaculate planning and organizing skill which include individuals, families,
+              Fortune 500 corporations and non-profit organisations. Where in our team has
+              conceptualized, designed and executed exceptional events right from meetings,
+              conferences, exhibitions, destination weddings and private parties
+              <br />
+              <br />
+              Our key strength is our in-house infrastructure and logistics support which enables us
+              to deliver our services to clients "On Time, Every Time!
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6} order={{sm:1,xs:1,md:2}}>
+            <Image ratio="4/3" src="/assets/images/passionStudio/about.jpg" />
+          </Grid>
         </Grid>
-        </Box>
-        </div>
-      );
+      </Box>
+      {/* </div> */}
+      <VideoPlayer/>
+      <Testimonial />
+      {/* <Gallery /> */}
+      <Team/>
+      <Achievement/>
+      <Clients/>
+      {/* <Services/>
+       */}
+      <Footer/>
+      </Paper>
+
+    </div>
+  );
 }
 
 export default NewNav;

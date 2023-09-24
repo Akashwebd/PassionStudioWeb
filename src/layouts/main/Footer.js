@@ -2,6 +2,10 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 // @mui
 import { Box, Grid, Link, Stack, Divider, Container, Typography, IconButton } from '@mui/material';
 // routes
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import { SocialIcon } from 'react-social-icons';
 import { PATH_PAGE } from '../../routes/paths';
 // _mock
 import { _socials } from '../../_mock/arrays';
@@ -12,28 +16,10 @@ import Iconify from '../../components/iconify';
 // ----------------------------------------------------------------------
 
 const LINKS = [
-  {
-    headline: 'Minimal',
-    children: [
-      { name: 'About us', href: PATH_PAGE.about },
-      { name: 'Contact us', href: PATH_PAGE.contact },
-      { name: 'FAQs', href: PATH_PAGE.faqs },
-    ],
-  },
-  {
-    headline: 'Legal',
-    children: [
-      { name: 'Terms and Condition', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-    ],
-  },
-  {
-    headline: 'Contact',
-    children: [
-      { name: 'support@minimals.cc', href: '#' },
-      { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' },
-    ],
-  },
+  {name: 'Instagram', href: PATH_PAGE.instagram },
+  {name: 'Facebook', href: PATH_PAGE.facebook },
+  { name: 'Linkedin', href: PATH_PAGE.linkedin },
+  { name: 'Linkedin', href: PATH_PAGE.linkedin },
 ];
 
 // ----------------------------------------------------------------------
@@ -43,27 +29,35 @@ export default function Footer() {
 
   const isHome = pathname === '/';
 
-  const simpleFooter = (
-    <Box
-      component="footer"
-      sx={{
-        py: 5,
-        textAlign: 'center',
-        position: 'relative',
-        bgcolor: 'background.default',
-      }}
-    >
-      <Container>
-        <Logo sx={{ mb: 1, mx: 'auto' }} />
+  // function openOnClick(value){
+  //   switch(value){
+  //     case 0:
+  //       histor
+  //   }
 
-        <Typography variant="caption" component="div">
-          © All rights reserved
-          <br /> made by &nbsp;
-          <Link href="https://minimals.cc/"> minimals.cc </Link>
-        </Typography>
-      </Container>
-    </Box>
-  );
+  // }
+
+  // const simpleFooter = (
+  //   <Box
+  //     component="footer"
+  //     sx={{
+  //       py: 5,
+  //       textAlign: 'center',
+  //       position: 'relative',
+  //       bgcolor: 'background.default',
+  //     }}
+  //   >
+  //     <Container>
+  //       <Logo sx={{ mb: 1, mx: 'auto' }} />
+
+  //       <Typography variant="caption" component="div">
+  //         © All rights reserved
+  //         <br /> made by &nbsp;
+  //         <Link href="https://minimals.cc/"> minimals.cc </Link>
+  //       </Typography>
+  //     </Container>
+  //   </Box>
+  // );
 
   const mainFooter = (
     <Box
@@ -74,8 +68,27 @@ export default function Footer() {
       }}
     >
       <Divider />
+      <Typography
+            variant="h2"
+            noWrap
+            component="a"
+            // href="/"
+            sx={{
+              justifyContent:'center',
+              mr: 2,
+              mt:2,
+              display: { xs: 'flex', md: 'flex' },
+              fontFamily: '"Comfortaa", Sans-serif',
+              fontWeight: 700,
+              letterSpacing: '.2rem',
+              color: 'black',
+              textDecoration: 'none',
+            }}
+          >
+            Contact Us
+          </Typography>
 
-      <Container sx={{ pt: 10 }}>
+      <Container sx={{ pt: 5 }}>
         <Grid
           container
           justifyContent={{
@@ -89,34 +102,52 @@ export default function Footer() {
             },
           }}
         >
-          <Grid item xs={12} sx={{ mb: 3 }}>
-            <Logo sx={{ mx: { xs: 'auto', md: 'inherit' } }} />
+          {/* <Grid item xs={6} sx={{ mb: 3 }}> */}
+          <br />
+          <Grid item xs={12} md={3} sx={{ mb: 3,pr:2 }}>
+          <LocationOnIcon/>
+            <Typography variant="body1" sx={{ pr: { md: 5 },textAlign:'center' }}>
+            <span>Ho.No 10/35, 1, Dr Dada Vaidya Rd, Near Mahalaxmi Temple, Altinho, Panaji, Goa 403001</span>
+            </Typography>
+            <br/>
+          </Grid>
+          <Grid item xs={12} md={3} sx={{ mb: 3,pr:2 }}>
+            <EmailIcon/>
+            <Typography variant="body1" sx={{ pr: { md: 5 },textAlign:'center' }}>
+            suraj.ghare@thepassionstudio.in
+            </Typography>
+            <br/>
+          </Grid>
+          <Grid item xs={12} md={3} sx={{ mb: 3 }}>
+            <LocalPhoneIcon/>
+            <Typography variant="body1" sx={{ pr: { md: 5 },textAlign:'center' }}>
+            +91 9307845701/9527828780
+            </Typography>
           </Grid>
 
           <Grid item xs={8} md={3}>
-            <Typography variant="body2" sx={{ pr: { md: 5 } }}>
-              The starting point for your next project with Minimal UI Kit, built on the newest
-              version of Material-UI ©, ready to be customized to your style.
-            </Typography>
-
             <Stack
               spacing={1}
               direction="row"
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
+              justifyContent={{ xs: 'center', md: 'center' }}
               sx={{
-                mt: 5,
+                mt: 1,
                 mb: { xs: 5, md: 0 },
               }}
             >
-              {_socials.map((social) => (
-                <IconButton key={social.name}>
+              {/* {_socials.map((social,index) => (
+                <IconButton size="large" key={social.name}>
+                  <Link to ={LINKS[index].href}>
                   <Iconify icon={social.icon} />
+                  </Link>
                 </IconButton>
-              ))}
+              ))} */}
+              <SocialIcon  url="https://www.instagram.com/teampassionstudio.in/" />
+              <SocialIcon url="https://www.linkedin.com/in/suraj-ghare-84581464/?originalSubdomain=in/" />
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={7}>
+          {/* <Grid item xs={12} md={7}>
             <Stack
               spacing={5}
               justifyContent="space-between"
@@ -146,15 +177,15 @@ export default function Footer() {
                 </Stack>
               ))}
             </Stack>
-          </Grid>
+          </Grid> */}
         </Grid>
 
         <Typography
           variant="caption"
           component="div"
           sx={{
-            mt: 10,
-            pb: 5,
+            mt: 1,
+            pb: 1,
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
@@ -164,5 +195,5 @@ export default function Footer() {
     </Box>
   );
 
-  return isHome ? simpleFooter : mainFooter;
+  return mainFooter;
 }
