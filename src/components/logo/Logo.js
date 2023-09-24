@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { Box, Link } from '@mui/material';
 import Image from '../image';
-import logoo from '../../assets/icons/Logo.png';
+import logoo from "../../assets/icons/Logo.png";
 
 // ----------------------------------------------------------------------
 
