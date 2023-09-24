@@ -1,89 +1,34 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { AppBar, Box, Grid, Typography, Card} from '@mui/material';
+import { Typography, Box, Grid, Card,CardMedia,CardContent,Paper } from '@mui/material';
+import { ServiceData} from './testimonialData';
 // import Card from "../../theme/overrides/Card";
 
 function Services({sx}){
 return(
-    <Grid container sx={{justifyContent:"center"}} spacing={16}>
-        <Grid item xs={12} md={3}>
-                    <Card
-                    sx={{
-                    p: 2,
-                    minWidth: 200,
-                    borderRadius: 1.5,
-                    textAlign: 'left',
-                    position: 'relative',
-                    display: 'inline-flex',
-                    flexDirection: 'column',
-                    textTransform: 'capitalize',
-                    ...sx,
-                    }}
-                >
-                <Typography variant="h2" component="div" noWrap sx={{ color: 'text.secondary' }}>
-                    hello
-                    </Typography>
-                </Card>
+    <Paper sx={{mb:5}}>
+       <Box
+        sx={{ flexGrow: 2, mt: 5, justifyContent: 'center' }}
+      >
+          <Box
+        sx={{display: 'flex', flexDirection: 'row', alignItems: 'center',justifyContent:"center"}}
+      >
+        <Box sx={{flex: 0.2, height: '1px', backgroundColor: 'orange'}} />
+      <Box>
+          <Typography variant="h2" sx={{textAlign: 'center',fontFamily:'"Comfortaa", Sans-serif',paddingRight:"10px"}}>SERVICES</Typography>
+        </Box>
+        <Box sx={{flex: 0.2, height: '1px', backgroundColor: 'orange'}} />
+      </Box>
+      </Box>
+      <Grid container spacing={3}>
+        {ServiceData.map(item =>
+          <Grid item xs={12} md={2}>
+        <Typography variant="h4" sx={{textAlign: 'center',fontFamily:'"Comfortaa", Sans-serif',paddingRight:"10px"}}>{item.title}</Typography>
         </Grid>
-        <Grid item xs={12} md={3}>
-                    <Card
-                    sx={{
-                    p: 2,
-                    minWidth: 200,
-                    borderRadius: 1.5,
-                    textAlign: 'left',
-                    position: 'relative',
-                    display: 'inline-flex',
-                    flexDirection: 'column',
-                    textTransform: 'capitalize',
-                    ...sx,
-                    }}
-                >
-                <Typography variant="h2" component="div" noWrap sx={{ color: 'text.secondary' }}>
-                    hello
-                    </Typography>
-                </Card>
-        </Grid>
-        <Grid item xs={12} md={3}>
-                    <Card
-                    sx={{
-                    p: 2,
-                    minWidth: 200,
-                    borderRadius: 1.5,
-                    textAlign: 'left',
-                    position: 'relative',
-                    display: 'inline-flex',
-                    flexDirection: 'column',
-                    textTransform: 'capitalize',
-                    ...sx,
-                    }}
-                >
-                <Typography variant="h2" component="div" noWrap sx={{ color: 'text.secondary' }}>
-                    hello
-                    </Typography>
-                </Card>
-        </Grid>
-        <Grid item xs={12} md={3}>
-                    <Card
-                    sx={{
-                    p: 2,
-                    minWidth: 200,
-                    borderRadius: 1.5,
-                    textAlign: 'left',
-                    position: 'relative',
-                    display: 'inline-flex',
-                    flexDirection: 'column',
-                    textTransform: 'capitalize',
-                    ...sx,
-                    }}
-                >
-                <Typography variant="h2" component="div" noWrap sx={{ color: 'text.secondary' }}>
-                    hello
-                    </Typography>
-                </Card>
-        </Grid>
-       
-    </Grid>
+        )}
+      
+      </Grid>
+</Paper>
 );
 }
 

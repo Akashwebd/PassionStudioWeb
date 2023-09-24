@@ -71,4 +71,38 @@ const AchievementData=[
     }
 ];
 
-export  {testimonialData,EmployeeData,AchievementData};
+const ServiceData=[
+    {title:"Conferences And Seminars/Meetings",
+    img:'/assets/images/Team/team-4.jpg'
+    },
+    {title:'Award Ceremony And Gala Dinner',
+    img:'/assets/images/Team/team-4.jpg'
+    },
+    {title:"Product Launches",
+    img:'/assets/images/Team/team-4.jpg'
+    },
+    {title:"Team Building/Workshops",
+     img:'/assets/images/Team/team-4.jpg'
+    },
+    {
+        title:"Exhibition",
+        img:'/assets/images/Team/team-4.jpg'
+    }
+]
+ 
+const Brand=[
+    '/assets/images/Clients/Aditya-Birla.png',
+    '/assets/images/Clients/Airtel.jpg',
+    '/assets/images/Clients/Bharat-Petroleum-01.png',
+    '/assets/images/Clients/Canara-Bank-01.png',
+    '/assets/images/Clients/Eicher.png',
+    '/assets/images/Clients/godrej.png',
+    '/assets/images/Clients/hdfc-bank-logo.png',
+    '/assets/images/Clients/iffi.webp',
+    '/assets/images/Clients/Kotak_Mahindra_Bank.png',
+    '/assets/images/Clients/Ranbaxy-01.png',
+    '/assets/images/Clients/Samsung.jpg',
+    '/assets/images/Clients/Yes-Bank-01.png'
+];
+
+export  {testimonialData,EmployeeData,AchievementData,ServiceData,Brand};

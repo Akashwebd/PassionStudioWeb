@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Stack, Typography } from '@mui/material';
 //
 import NavList from './NavList';
+import Logo from '../../../../components/logo';
 
 // ----------------------------------------------------------------------
 
@@ -12,6 +13,7 @@ NavDesktop.propTypes = {
 };
 
 export default function NavDesktop({ isOffset, data }) {
+  console.log(isOffset,'checkoffset');
   return (
     <Stack
       component="nav"
@@ -19,12 +21,12 @@ export default function NavDesktop({ isOffset, data }) {
       spacing={5}
       justifyContent="center"
       alignItems="center"
-      sx={{ mr: 5, height: 1 }}
+      sx={{ mr: 3, height: 1 }}
     >
       {data.slice(0, 3).map((link) => (
         <NavList key={link.title} item={link} isOffset={isOffset} />
       ))}
-      <Typography
+      {/* <Typography
         variant="h3"
         noWrap
         component="a"
@@ -42,7 +44,8 @@ export default function NavDesktop({ isOffset, data }) {
         }}
       >
         THE PASSION STUDIO
-      </Typography>
+      </Typography> */}
+      <Logo sx={{ mx: 1.0, my: 3,ml:5 }} />
       {data.slice(3, 6).map((link) => (
         <NavList key={link.title} item={link} isOffset={isOffset} />
       ))}

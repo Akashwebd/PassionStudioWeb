@@ -15,6 +15,7 @@ import { ListItem } from './styles';
 export const NavItem = forwardRef(
   ({ item, open, isOffset, active, subItem, isExternalLink, ...other }, ref) => {
     const { title, path, children } = item;
+    console.log(path,'checkpath');
 
     const renderContent = (
       <ListItem
@@ -35,7 +36,7 @@ export const NavItem = forwardRef(
     // ExternalLink
     if (isExternalLink) {
       return (
-        <Link href={path} target="_blank" rel="noopener" underline="none">
+        <Link href={path} to="#about">
           {renderContent}
         </Link>
       );

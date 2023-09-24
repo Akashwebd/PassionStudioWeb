@@ -33,7 +33,7 @@ return(
         <CardMedia
         sx={{ height: "300px",backgroundPosition:"top"}}
         image={item.image}
-        title="green iguana"
+        // title="green iguana"
         />
         <CardContent>
         <Typography gutterBottom variant="h5" component="div">

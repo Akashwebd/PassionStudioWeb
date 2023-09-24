@@ -68,8 +68,27 @@ export default function Footer() {
       }}
     >
       <Divider />
+      <Typography
+            variant="h2"
+            noWrap
+            component="a"
+            // href="/"
+            sx={{
+              justifyContent:'center',
+              mr: 2,
+              mt:2,
+              display: { xs: 'flex', md: 'flex' },
+              fontFamily: '"Comfortaa", Sans-serif',
+              fontWeight: 700,
+              letterSpacing: '.2rem',
+              color: 'black',
+              textDecoration: 'none',
+            }}
+          >
+            Contact Us
+          </Typography>
 
-      <Container sx={{ pt: 10 }}>
+      <Container sx={{ pt: 5 }}>
         <Grid
           container
           justifyContent={{
@@ -83,37 +102,25 @@ export default function Footer() {
             },
           }}
         >
-          <Grid item xs={6} sx={{ mb: 3 }}>
-          <Typography
-            variant="h3"
-            noWrap
-            component="a"
-            // href="/"
-            sx={{
-              mr: 2,
-              mb:2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: '"Comfortaa", Sans-serif',
-              fontWeight: 700,
-              letterSpacing: '.2rem',
-              color: 'black',
-              textDecoration: 'none',
-            }}
-          >
-            Contact Us
-          </Typography>
+          {/* <Grid item xs={6} sx={{ mb: 3 }}> */}
+          <br />
+          <Grid item xs={12} md={3} sx={{ mb: 3,pr:2 }}>
           <LocationOnIcon/>
-            <Typography variant="body1" sx={{ pr: { md: 5 } }}>
+            <Typography variant="body1" sx={{ pr: { md: 5 },textAlign:'center' }}>
             <span>Ho.No 10/35, 1, Dr Dada Vaidya Rd, Near Mahalaxmi Temple, Altinho, Panaji, Goa 403001</span>
             </Typography>
             <br/>
+          </Grid>
+          <Grid item xs={12} md={3} sx={{ mb: 3,pr:2 }}>
             <EmailIcon/>
-            <Typography variant="body1" sx={{ pr: { md: 5 } }}>
+            <Typography variant="body1" sx={{ pr: { md: 5 },textAlign:'center' }}>
             suraj.ghare@thepassionstudio.in
             </Typography>
             <br/>
+          </Grid>
+          <Grid item xs={12} md={3} sx={{ mb: 3 }}>
             <LocalPhoneIcon/>
-            <Typography variant="body1" sx={{ pr: { md: 5 } }}>
+            <Typography variant="body1" sx={{ pr: { md: 5 },textAlign:'center' }}>
             +91 9307845701/9527828780
             </Typography>
           </Grid>
@@ -122,9 +129,9 @@ export default function Footer() {
             <Stack
               spacing={1}
               direction="row"
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
+              justifyContent={{ xs: 'center', md: 'center' }}
               sx={{
-                mt: 5,
+                mt: 1,
                 mb: { xs: 5, md: 0 },
               }}
             >
@@ -135,7 +142,7 @@ export default function Footer() {
                   </Link>
                 </IconButton>
               ))} */}
-              <SocialIcon url="https://www.instagram.com/teampassionstudio.in/" />
+              <SocialIcon  url="https://www.instagram.com/teampassionstudio.in/" />
               <SocialIcon url="https://www.linkedin.com/in/suraj-ghare-84581464/?originalSubdomain=in/" />
             </Stack>
           </Grid>
@@ -177,8 +184,8 @@ export default function Footer() {
           variant="caption"
           component="div"
           sx={{
-            mt: 10,
-            pb: 5,
+            mt: 1,
+            pb: 1,
             textAlign: { xs: 'center', md: 'left' },
           }}
         >

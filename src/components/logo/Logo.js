@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
 import { Box, Link } from '@mui/material';
 import Image from '../image';
-import logoo from '../../assets/icons/logo.png';
+import logoo from '../../assets/icons/Logo.png';
 
 // ----------------------------------------------------------------------
 
@@ -36,6 +36,7 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
         width: 200,
         height: 60,
         display: 'inline-flex',
+        justifyContent:"center",
         ...sx,
       }}
       {...other}

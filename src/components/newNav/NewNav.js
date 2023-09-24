@@ -1,10 +1,11 @@
 import React from 'react';
 import { useTheme } from '@mui/material/styles';
-import { AppBar, Box, Toolbar, Typography, Button, Grid, Container, Link,Paper } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography, Grid, Container,Paper } from '@mui/material';
+import Footer from '../../layouts/main/Footer';
 import useResponsive from '../../hooks/useResponsive';
 import Testimonial from './Testimonial';
-import Services from './Services';
-import Gallery from '../gallery/Gallery';
+// import Services from './Services';
+// import Gallery from '../gallery/Gallery';
 import NavMobile from '../../layouts/main/nav/mobile/NavMobile';
 import NavDesktop from '../../layouts/main/nav/desktop/NavDesktop';
 import useOffSetTop from '../../hooks/useOffSetTop';
@@ -16,12 +17,14 @@ import Image from '../image';
 import Team from './Team';
 import Achievement from './Achievement';
 import VideoPlayer from './VideoPlayer';
+import Clients from './Clients';
+// import Logo from '../../components/logo';
 // import heroImage from '/assets/images/passionStudio/hero-bg.jpg'
 
 function NewNav() {
   const theme = useTheme();
-  const nav1 = ['About', 'Services', 'Portfolio'];
-  const nav2 = ['Gallery', 'Team', 'Contact'];
+  // const nav1 = ['About', 'Services', 'Portfolio'];
+  // const nav2 = ['Gallery', 'Team', 'Contact'];
   const isDesktop = useResponsive('up', 'md');
   const isOffset = useOffSetTop(HEADER.H_MAIN_DESKTOP);
   const navConfig = [
@@ -99,6 +102,7 @@ function NewNav() {
       <Image ratio="16/9" src="/assets/images/passionStudio/hero-bg.jpg" />
       <Paper elevation={2} sx={{padding:"20px"}}>
       {/* <CountUp end={123457} /> */}
+      {/* <div id="about"> */}
       <Box sx={{ flexGrow: 2, display:"grid", mt: 5, padding: '10px' }}>
         <Grid container spacing={16}>
           <Grid item xs={12} md={6} order={{sm:2,xs:2,md:1}}>
@@ -135,13 +139,16 @@ function NewNav() {
           </Grid>
         </Grid>
       </Box>
+      {/* </div> */}
       <VideoPlayer/>
       <Testimonial />
       {/* <Gallery /> */}
       <Team/>
       <Achievement/>
-      {/* <Services/> */}
-      {/* <Footer/> */}
+      <Clients/>
+      {/* <Services/>
+       */}
+      <Footer/>
       </Paper>
 
     </div>
