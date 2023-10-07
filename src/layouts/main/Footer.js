@@ -61,6 +61,7 @@ export default function Footer() {
 
   const mainFooter = (
     <Box
+      id="contact"
       component="footer"
       sx={{
         position: 'relative',
@@ -114,14 +115,14 @@ export default function Footer() {
           <Grid item xs={12} md={3} sx={{ mb: 3,pr:2 }}>
             <EmailIcon/>
             <Typography variant="body1" sx={{ pr: { md: 5 },textAlign:'center' }}>
-            suraj.ghare@thepassionstudio.in
+            akashstone22@gmail.com
             </Typography>
             <br/>
           </Grid>
           <Grid item xs={12} md={3} sx={{ mb: 3 }}>
             <LocalPhoneIcon/>
             <Typography variant="body1" sx={{ pr: { md: 5 },textAlign:'center' }}>
-            +91 9307845701/9527828780
+            +91 7820940677/8975113252
             </Typography>
           </Grid>
 
@@ -142,8 +143,8 @@ export default function Footer() {
                   </Link>
                 </IconButton>
               ))} */}
-              <SocialIcon  url="https://www.instagram.com/teampassionstudio.in/" />
-              <SocialIcon url="https://www.linkedin.com/in/suraj-ghare-84581464/?originalSubdomain=in/" />
+              <SocialIcon  url="https://www.instagram.com/akash_ghare_08/" />
+              <SocialIcon url="https://www.linkedin.com/in/akash-ghare-1a5470107/" />
             </Stack>
           </Grid>
 
@@ -189,7 +190,7 @@ export default function Footer() {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          © 2021. All rights reserved
+          © 2023. All rights reserved
         </Typography>
       </Container>
     </Box>

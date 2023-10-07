@@ -9,14 +9,15 @@ import getRatio from './getRatio';
 // ----------------------------------------------------------------------
 
 const Image = forwardRef(
-  ({ ratio, disabledEffect = false, effect = 'blur', sx, ...other }, ref) => {
+  ({ ratio, disabledEffect = false,isdifferent, effect = 'blur', sx, ...other }, ref) => {
+    console.log(isdifferent,'checkifdifferent');
     const content = (
       <Box
         component={LazyLoadImage}
         wrapperClassName="wrapper"
         effect={disabledEffect ? undefined : effect}
         placeholderSrc={disabledEffect ? '/assets/transparent.png' : '/assets/placeholder.svg'}
-        sx={{ width: 1, height: 1, objectFit: 'cover' }}
+        sx={{ width: 1, height: 1, objectFit: isdifferent?'contain':'cover' }}
         {...other}
       />
     );
@@ -74,6 +75,7 @@ const Image = forwardRef(
 
 Image.propTypes = {
   sx: PropTypes.object,
+  isdifferent:PropTypes.bool,
   effect: PropTypes.string,
   disabledEffect: PropTypes.bool,
   ratio: PropTypes.oneOf(['4/3', '3/4', '6/4', '4/6', '16/9', '9/16', '21/9', '9/21', '1/1']),

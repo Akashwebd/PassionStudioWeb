@@ -23,7 +23,7 @@ export default function NavDesktop({ isOffset, data }) {
       alignItems="center"
       sx={{ mr: 3, height: 1 }}
     >
-      {data.slice(0, 3).map((link) => (
+      {data.slice(0, 2).map((link) => (
         <NavList key={link.title} item={link} isOffset={isOffset} />
       ))}
       {/* <Typography
@@ -46,7 +46,7 @@ export default function NavDesktop({ isOffset, data }) {
         THE PASSION STUDIO
       </Typography> */}
       <Logo sx={{ mx: 1.0, my: 3,ml:5 }} />
-      {data.slice(3, 6).map((link) => (
+      {data.slice(2, 4).map((link) => (
         <NavList key={link.title} item={link} isOffset={isOffset} />
       ))}
     </Stack>

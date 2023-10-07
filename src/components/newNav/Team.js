@@ -7,7 +7,7 @@ import { EmployeeData } from './testimonialData';
 function Team(){
     console.log(EmployeeData,'checkdata')
 return(
-    <Paper sx={{mb:5}}>
+    <Paper sx={{mb:5}} id="team">
         <Box
         sx={{ flexGrow: 2, mt: 5, justifyContent: 'center' }}
       >

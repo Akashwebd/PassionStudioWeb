@@ -2,7 +2,7 @@ import { Paper,Box,Grid } from "@mui/material";
 import React from "react";
 import ReactPlayer from 'react-player';
 
-const VIDEO_PATH = 'https://youtu.be/0BIaDVnYp2A';
+const VIDEO_PATH = 'https://youtu.be/N8tnM9KyLos';
 
 function VideoPlayer(){
 return(

@@ -33,22 +33,22 @@ function NewNav() {
       icon: <Iconify icon="eva:info-fill" />,
       path: '#about',
     },
-    {
-      title: 'Services',
-      icon: <Iconify icon="eos-icons:service" />,
-      path: '#services',
-    },
+    // {
+    //   title: 'Services',
+    //   icon: <Iconify icon="eos-icons:service" />,
+    //   path: '#services',
+    // },
     {
       title: 'Portfolio',
       path: '#portfolio',
       icon: <Iconify icon="eva:briefcase-fill" />,
     },
 
-    {
-      title: 'Gallery',
-      path: '#gallery',
-      icon: <Iconify icon="eva:image-fill" />,
-    },
+    // {
+    //   title: 'Gallery',
+    //   path: '#gallery',
+    //   icon: <Iconify icon="eva:image-fill" />,
+    // },
     {
       title: 'Team',
       path: '#team',
@@ -99,12 +99,12 @@ function NewNav() {
           </Container>
         </Toolbar>
       </AppBar>
-      <Image ratio="16/9" src="/assets/images/passionStudio/hero-bg.jpg" />
+      <Image ratio="16/9" src="/assets/images/passionStudio/home.jpg" />
       <Paper elevation={2} sx={{padding:"20px"}}>
       {/* <CountUp end={123457} /> */}
       {/* <div id="about"> */}
       <Box sx={{ flexGrow: 2, display:"grid", mt: 5, padding: '10px' }}>
-        <Grid container spacing={16}>
+        <Grid container spacing={16} id="about">
           <Grid item xs={12} md={6} order={{sm:2,xs:2,md:1}}>
             <Typography sx={{ justifyContent: 'center', padding: '30px', fontStyle: 'italic',fontFamily:'"Comfortaa", Sans-serif' }}>
               Since the year 2010, boasts to be one of Goa's premier event planning and design
@@ -142,10 +142,10 @@ function NewNav() {
       {/* </div> */}
       <VideoPlayer/>
       <Testimonial />
-      {/* <Gallery /> */}
-      <Team/>
-      <Achievement/>
       <Clients/>
+      {/* <Gallery /> */}
+      <Achievement/>
+      <Team/>
       {/* <Services/>
        */}
       <Footer/>

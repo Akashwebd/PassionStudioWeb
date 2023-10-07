@@ -7,7 +7,7 @@ import Image from '../image';
 function Clients(){
 return(
     <Paper sx={{mb:5,mt:5}}>
-        <Typography variant="h2" sx={{fontFamily:'"Comfortaa", Sans-serif',paddingRight:"10px"}}>Our Loyal Customers</Typography>
+        <Typography variant="h2" sx={{fontFamily:'"Comfortaa", Sans-serif',paddingRight:"10px",textAlign:"center"}}>Our Loyal Customers</Typography>
         <Box sx={{padding:"30px"}}>
         <Grid container spacing={3}>
             {
@@ -19,13 +19,14 @@ return(
                 sx={{
                     width: 200,
                     height: 60,
+                    marginTop:"10px",
                     display: 'inline-flex',
                     // justifyContent:"center",
                     // ...sx,
                 }}
     //   {...other}
     >
-      <Image src={item} />
+      <Image src={item} sx={{aspectRatio:'4/2',objectFit:'contain',marginTop:'0px'}} isdifferent/>
             </Box>
             </Grid>
                 )

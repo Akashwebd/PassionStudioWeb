@@ -31,22 +31,22 @@ quote:"I received nothing but positive feedback about every ospecl of the day,an
 const EmployeeData=[
     {
     image:'/assets/images/Team/team-1.jpg',
-    name:'Suraj Ghare',
+    name:'Akash Ghare',
     title:'Founder'
 },
 {
     image:'/assets/images/Team/team-2.jpg',
-    name:'Suraj Ghare',
-    title:'Founder'
+    name:'Lizeth Daniels',
+    title:'CTO'
 },
 {
     image:'/assets/images/Team/team-3.jpg',
-    name:'Suraj Ghare',
-    title:'Founder'
+    name:'Allie Moore',
+    title:'CFO'
 },
 {   image:'/assets/images/Team/team-4.jpg',
-    name:'Suraj Ghare',
-    title:'Founder'
+    name:'Amelie Griffith',
+    title:'HR'
 
 }
 ];

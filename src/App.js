@@ -69,12 +69,12 @@ export default function App() {
         <ReduxProvider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <SettingsProvider>
+              {/* <SettingsProvider> */}
                 <BrowserRouter>
                   <ScrollToTop />
                   <MotionLazyContainer>
                     <ThemeProvider>
-                      <ThemeSettings>
+                      {/* <ThemeSettings> */}
                         <ThemeLocalization>
                           <SnackbarProvider>
                             <NewNav/>
@@ -82,11 +82,11 @@ export default function App() {
                             {/* <Router /> */}
                           </SnackbarProvider>
                         </ThemeLocalization>
-                      </ThemeSettings>
+                      {/* </ThemeSettings> */}
                     </ThemeProvider>
                   </MotionLazyContainer>
                 </BrowserRouter>
-              </SettingsProvider>
+              {/* </SettingsProvider> */}
             </LocalizationProvider>
           </PersistGate>
         </ReduxProvider>

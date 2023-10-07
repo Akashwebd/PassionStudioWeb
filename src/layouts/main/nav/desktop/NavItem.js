@@ -17,6 +17,12 @@ export const NavItem = forwardRef(
     const { title, path, children } = item;
     console.log(path,'checkpath');
 
+    function scrollToElement(){
+      const anchor = document.querySelector(path)
+       anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    }
+
     const renderContent = (
       <ListItem
         ref={ref}
@@ -36,7 +42,7 @@ export const NavItem = forwardRef(
     // ExternalLink
     if (isExternalLink) {
       return (
-        <Link href={path} to="#about">
+        <Link href={path} >
           {renderContent}
         </Link>
       );
@@ -49,7 +55,7 @@ export const NavItem = forwardRef(
 
     // Default
     return (
-      <Link component={RouterLink} to={path} underline="none">
+      <Link component={RouterLink} underline="none" onClick={()=>scrollToElement()}>
         {renderContent}
       </Link>
     );
